@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://manobarbapizzaria.wabiz.delivery/sitemap.xml

@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mano Barba Pizzaria | Pizza Quentinha e Entrega Rápida</title>
+    
+    <!-- SEO Básico e AEO/GEO -->
+    <meta name="description" content="A pizza que dá vontade antes mesmo da primeira mordida. Na Mano Barba Pizzaria você encontra pizzas tradicionais, especiais e doces. Peça online e receba rápido!">
+    <meta name="keywords" content="pizzaria, pizza delivery, pedir pizza, pizza de calabresa, pizza quatro queijos, pizza doce, delivery de pizza, Mano Barba, pizzaria perto de mim">
+    <meta name="author" content="Mano Barba Pizzaria">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    
+    <!-- Open Graph / Facebook / WhatsApp -->
+    <meta property="og:type" content="restaurant.restaurant">
+    <meta property="og:title" content="Mano Barba Pizzaria | Bateu a fome?">
+    <meta property="og:description" content="Pizza quentinha, recheio caprichado e aquele sabor que faz você querer repetir. Peça agora pelo nosso site!">
+    <meta property="og:url" content="https://manobarbapizzaria.wabiz.delivery/">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1593560708920-61dd98c46a4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
+    <meta property="og:site_name" content="Mano Barba Pizzaria">
+    <meta property="og:locale" content="pt_BR">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Mano Barba Pizzaria">
+    <meta name="twitter:description" content="A pizza que dá vontade antes mesmo da primeira mordida.">
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1593560708920-61dd98c46a4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
+
+    <meta name="theme-color" content="#E63946">
+    <link rel="icon" type="image/jpeg" href="img/Logo_manobarba.jpg">
+    <!-- Canonical link para evitar duplicidade -->
+    <link rel="canonical" href="https://manobarbapizzaria.wabiz.delivery/">
+
+    <!-- Schema.org JSON-LD (Otimização para GEO/AEO e Rich Snippets do Google) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Restaurant",
+      "name": "Mano Barba Pizzaria",
+      "image": "https://images.unsplash.com/photo-1593560708920-61dd98c46a4e?ixlib=rb-4.0.3",
+      "description": "A pizzaria mais descontraída, próxima e saborosa. Pizzas salgadas e doces com massa perfeita e recheio farto.",
+      "url": "https://manobarbapizzaria.wabiz.delivery/",
+      "telephone": "+55000000000",
+      "menu": "https://manobarbapizzaria.wabiz.delivery/cardapio.pdf",
+      "servesCuisine": "Pizza",
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Rua das Pizzas, 123",
+        "addressLocality": "Centro",
+        "addressRegion": "UF",
+        "addressCountry": "BR"
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday"],
+          "opens": "18:00",
+          "closes": "23:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Friday", "Saturday"],
+          "opens": "18:00",
+          "closes": "23:59"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Sunday",
+          "opens": "18:00",
+          "closes": "23:00"
+        }
+      ],
+      "acceptsReservations": "False",
+      "sameAs": [
+        "https://www.instagram.com/manobarbapizzaria",
+        "https://www.facebook.com/manobarbapizzaria"
+      ]
+    }
+    </script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="js/tailwind-config.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="font-sans text-brand-dark relative bg-brand-light">
+
+    <!-- HEADER: Minimalist -->
+    <header id="main-header" class="fixed w-full top-0 z-50 transition-all duration-500 bg-transparent py-4">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <a href="#" class="flex-shrink-0 flex items-center gap-3 z-20">
+                    <img src="img/Logo_manobarba_hero.png" alt="Mano Barba Logo" class="h-16 md:h-20 w-auto object-contain drop-shadow-md">
+                </a>
+
+                <!-- Desktop Menu -->
+                <nav class="hidden md:flex space-x-10 items-center">
+                    <a href="#pizzas" class="nav-link text-brand-light font-heading font-bold text-lg hover:text-brand-mustard transition-colors text-shadow-sm">Pizzas</a>
+                    <a href="#promocao" class="nav-link text-brand-light font-heading font-bold text-lg hover:text-brand-mustard transition-colors text-shadow-sm">Promoções</a>
+                    <a href="#entrega" class="nav-link text-brand-light font-heading font-bold text-lg hover:text-brand-mustard transition-colors text-shadow-sm">Entrega</a>
+                    <a href="#vantagens" class="nav-link text-brand-light font-heading font-bold text-lg hover:text-brand-mustard transition-colors text-shadow-sm">Vantagens</a>
+                </nav>
+
+                <div class="hidden md:flex items-center gap-4">
+                    <a href="https://manobarbapizzaria.wabiz.delivery/" class="bg-brand-red hover:bg-red-700 text-white px-8 py-3 rounded-full font-heading font-bold shadow-lg transition-transform hover:scale-105 flex items-center gap-2 text-lg">
+                        Fazer Pedido
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center z-20">
+                    <button id="mobile-menu-btn" class="text-brand-light hover:text-brand-mustard focus:outline-none p-2 transition-colors">
+                        <i class="fa-solid fa-bars text-3xl text-shadow-sm"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Panel -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white absolute w-full top-0 left-0 h-screen pt-28 pb-6 flex flex-col items-center shadow-xl transition-all">
+            <div class="space-y-6 text-center w-full px-6 flex flex-col">
+                <a href="#pizzas" class="block px-3 py-3 font-heading text-2xl font-bold text-brand-dark hover:text-brand-red">Pizzas</a>
+                <a href="#promocao" class="block px-3 py-3 font-heading text-2xl font-bold text-brand-dark hover:text-brand-red">Promoções</a>
+                <a href="#entrega" class="block px-3 py-3 font-heading text-2xl font-bold text-brand-dark hover:text-brand-red">Entrega</a>
+                <a href="#vantagens" class="block px-3 py-3 font-heading text-2xl font-bold text-brand-dark hover:text-brand-red">Vantagens</a>
+                
+                <hr class="border-gray-200 w-full my-4">
+                
+                <a href="https://manobarbapizzaria.wabiz.delivery/" class="bg-brand-red text-white w-full py-4 rounded-full font-heading font-bold shadow-lg text-xl hover:bg-red-700 transition-colors">
+                    Fazer Pedido
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION with Video Background -->
+    <section class="relative min-h-screen flex items-center pt-20 overflow-hidden">
+        <!-- Video Background -->
+        <div class="absolute inset-0 z-0 bg-black">
+            <video autoplay loop muted playsinline class="w-full h-full object-cover opacity-60">
+                <source src="img/hero_video.mp4" type="video/mp4">
+            </video>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full text-center flex flex-col items-center justify-center">
+            
+            <span class="inline-block py-1.5 px-4 rounded-full bg-brand-mustard text-brand-dark font-black text-sm mb-6 uppercase tracking-widest shadow-lg animate-float-medium">
+                Bateu a fome?
+            </span>
+            <h1 class="text-3xl sm:text-5xl lg:text-7xl font-heading font-black text-white leading-tight mb-4 sm:mb-6 text-shadow-lg max-w-4xl">
+                A pizza que dá <span class="text-brand-red">vontade</span> antes mesmo da mordida.
+            </h1>
+            <p class="text-base sm:text-2xl text-gray-200 mb-8 sm:mb-10 max-w-2xl mx-auto text-shadow-sm font-medium px-2">
+                Pizza quentinha, recheio caprichado e aquele sabor que faz você querer repetir.
+            </p>
+            
+            <a href="https://manobarbapizzaria.wabiz.delivery/" class="bg-brand-red hover:bg-red-700 text-white px-8 py-4 rounded-full font-heading font-black shadow-[0_10px_20px_rgba(230,57,70,0.5)] transition-transform hover:scale-105 text-lg sm:text-xl flex items-center gap-2 hero-btn-anim">
+                FAZER PEDIDO AGORA 🍕
+            </a>
+
+        </div>
+
+        <!-- Wave Divider Bottom -->
+        <div class="shape-divider z-20">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- ESCOLHA SUA PIZZA SECTION -->
+    <section id="pizzas" class="py-24 bg-brand-light relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+                <h2 class="text-4xl md:text-5xl font-heading font-black text-brand-dark mb-4">Qual vai ser a de hoje?</h2>
+                <p class="text-lg text-gray-600">Dos clássicos que nunca decepcionam aos sabores especiais.</p>
+            </div>
+
+            <!-- Pizza Grid (6 Pizzas) -->
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-6 lg:gap-8">
+                
+                <!-- Pizza Card 1 -->
+                <div class="bg-white rounded-3xl p-3 sm:p-6 border border-gray-100 pizza-card relative reveal group shadow-md flex flex-col">
+                    <span class="absolute top-2 right-2 sm:top-4 sm:right-4 bg-brand-cyan text-white text-[10px] sm:text-xs font-bold px-2 sm:px-3 py-1 rounded-full z-10 shadow-sm">MAIS PEDIDA</span>
+                    <div class="aspect-square rounded-2xl overflow-hidden mb-3 sm:mb-5 relative bg-gray-100">
+                        <img src="https://images.unsplash.com/photo-1593560708920-61dd98c46a4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Pizza Margherita" class="w-full h-full object-cover pizza-img">
+                    </div>
+                    <h3 class="text-sm sm:text-2xl font-heading font-bold text-brand-dark mb-1 sm:mb-2">Margherita</h3>
+                    <p class="text-gray-500 text-[10px] sm:text-sm leading-snug line-clamp-3 mt-auto">Molho de tomate fresco, mussarela especial, manjericão e um toque de azeite.</p>
+                </div>
+
+                <!-- Pizza Card 2 -->
+                <div class="bg-white rounded-3xl p-3 sm:p-6 border border-gray-100 pizza-card relative reveal group shadow-md flex flex-col" style="transition-delay: 100ms;">
+                    <span class="absolute top-2 right-2 sm:top-4 sm:right-4 bg-brand-mustard text-brand-dark text-[10px] sm:text-xs font-bold px-2 sm:px-3 py-1 rounded-full z-10 shadow-sm">SABOROSA</span>
+                    <div class="aspect-square rounded-2xl overflow-hidden mb-3 sm:mb-5 relative bg-gray-100">
+                        <img src="https://images.unsplash.com/photo-1628840042765-356cda07504e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Pizza Pepperoni" class="w-full h-full object-cover pizza-img">
+                    </div>
+                    <h3 class="text-sm sm:text-2xl font-heading font-bold text-brand-dark mb-1 sm:mb-2">Pepperoni</h3>
+                    <p class="text-gray-500 text-[10px] sm:text-sm leading-snug line-clamp-3 mt-auto">Muito queijo mussarela coberto com fatias generosas de pepperoni levemente picante.</p>
+                </div>
+
+                <!-- Pizza Card 3 -->
+                <div class="bg-white rounded-3xl p-3 sm:p-6 border border-gray-100 pizza-card relative reveal group shadow-md flex flex-col" style="transition-delay: 200ms;">
+                    <span class="absolute top-2 right-2 sm:top-4 sm:right-4 bg-brand-red text-white text-[10px] sm:text-xs font-bold px-2 sm:px-3 py-1 rounded-full z-10 shadow-sm">CLÁSSICA</span>
+                    <div class="aspect-square rounded-2xl overflow-hidden mb-3 sm:mb-5 relative bg-gray-100">
+                        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Pizza Frango com Catupiry" class="w-full h-full object-cover pizza-img">
+                    </div>
+                    <h3 class="text-sm sm:text-2xl font-heading font-bold text-brand-dark mb-1 sm:mb-2">Frango c/ Catupiry</h3>
+                    <p class="text-gray-500 text-[10px] sm:text-sm leading-snug line-clamp-3 mt-auto">Frango desfiado temperado e coberto com o verdadeiro Catupiry cremoso.</p>
+                </div>
+
+                <!-- Pizza Card 4 -->
+                <div class="bg-white rounded-3xl p-3 sm:p-6 border border-gray-100 pizza-card relative reveal group shadow-md flex flex-col">
+                    <div class="aspect-square rounded-2xl overflow-hidden mb-3 sm:mb-5 relative bg-gray-100">
+                        <img src="https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Pizza Calabresa" class="w-full h-full object-cover pizza-img">
+                    </div>
+                    <h3 class="text-sm sm:text-2xl font-heading font-bold text-brand-dark mb-1 sm:mb-2">Calabresa</h3>
+                    <p class="text-gray-500 text-[10px] sm:text-sm leading-snug line-clamp-3 mt-auto">A tradicional calabresa fatiada com cebola fresca e azeitonas, um clássico amado.</p>
+                </div>
+
+                <!-- Pizza Card 5 -->
+                <div class="bg-white rounded-3xl p-3 sm:p-6 border border-gray-100 pizza-card relative reveal group shadow-md flex flex-col" style="transition-delay: 100ms;">
+                    <span class="absolute top-2 right-2 sm:top-4 sm:right-4 bg-brand-cyan text-white text-[10px] sm:text-xs font-bold px-2 sm:px-3 py-1 rounded-full z-10 shadow-sm">O QUERIDINHO</span>
+                    <div class="aspect-square rounded-2xl overflow-hidden mb-3 sm:mb-5 relative bg-gray-100">
+                        <img src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Pizza Quatro Queijos" class="w-full h-full object-cover pizza-img">
+                    </div>
+                    <h3 class="text-sm sm:text-2xl font-heading font-bold text-brand-dark mb-1 sm:mb-2">Quatro Queijos</h3>
+                    <p class="text-gray-500 text-[10px] sm:text-sm leading-snug line-clamp-3 mt-auto">Mussarela, provolone, parmesão e gorgonzola derretidos com perfeição.</p>
+                </div>
+
+                <!-- Pizza Card 6 -->
+                <div class="bg-white rounded-3xl p-3 sm:p-6 border border-gray-100 pizza-card relative reveal group shadow-md flex flex-col" style="transition-delay: 200ms;">
+                    <span class="absolute top-2 right-2 sm:top-4 sm:right-4 bg-purple-500 text-white text-[10px] sm:text-xs font-bold px-2 sm:px-3 py-1 rounded-full z-10 shadow-sm">DOCE</span>
+                    <div class="aspect-square rounded-2xl overflow-hidden mb-3 sm:mb-5 relative bg-gray-100">
+                        <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Pizza Brigadeiro" class="w-full h-full object-cover pizza-img">
+                    </div>
+                    <h3 class="text-sm sm:text-2xl font-heading font-bold text-brand-dark mb-1 sm:mb-2">Brigadeiro</h3>
+                    <p class="text-gray-500 text-[10px] sm:text-sm leading-snug line-clamp-3 mt-auto">O verdadeiro brigadeiro cremoso coberto com granulado de chocolate.</p>
+                </div>
+            </div>
+            
+            <div class="text-center mt-8 sm:mt-12 reveal px-2">
+                <a href="cardapio.pdf" target="_blank" class="inline-flex items-center justify-center gap-2 bg-brand-dark hover:bg-gray-800 text-brand-light px-6 py-3 rounded-full font-heading font-bold shadow-xl hover:shadow-2xl hover:scale-105 transition-all text-base sm:text-xl w-full sm:w-auto">
+                    VER CARDÁPIO <i class="fa-solid fa-file-pdf"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROMOÇÃO SECTION (CARDS TORTOS) -->
+    <section id="promocao" class="py-24 relative bg-brand-cyan overflow-hidden">
+        <!-- Top Wave Divider -->
+        <div class="shape-divider-top z-20">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+            </svg>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-16">
+            <div class="text-center mb-16 reveal">
+                <span class="inline-block bg-brand-mustard text-brand-dark font-black px-6 py-2 rounded-full text-lg mb-4 uppercase tracking-wider transform -rotate-2 shadow-lg">
+                    🔥 IMPERDÍVEIS
+                </span>
+                <h2 class="text-4xl md:text-6xl font-heading font-black text-brand-dark">Nossas Promoções</h2>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-stretch reveal">
+                
+                <!-- Promo Card 1 -->
+                <div class="promo-card promo-card-1 bg-brand-red text-white rounded-[30px] sm:rounded-[40px] shadow-2xl p-5 sm:p-8 md:p-10 border-4 border-brand-mustard flex flex-col relative h-full">
+                    <div class="absolute -top-6 -right-2 sm:-right-6 bg-brand-mustard text-brand-dark font-black w-20 h-20 sm:w-24 sm:h-24 rounded-full flex items-center justify-center text-center shadow-lg border-4 border-white animate-wiggle z-20 text-sm sm:text-base">
+                        R$ 64,99
+                    </div>
+                    
+                    <h3 class="text-xl sm:text-2xl md:text-3xl font-heading font-black mb-1 sm:mb-2 uppercase pr-16 sm:pr-0">Pizza Salgada + Broto Doce</h3>
+                    <p class="text-red-100 font-bold mb-4 sm:mb-6 text-sm sm:text-lg">De domingo a quinta</p>
+                    
+                    <div class="bg-white/10 rounded-2xl p-4 sm:p-5 mb-4 sm:mb-6 backdrop-blur-sm border border-white/20 flex-grow">
+                        <h4 class="font-bold text-brand-mustard mb-2 sm:mb-3 text-sm sm:text-lg">Sabores da Broto Doce:</h4>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-white text-brand-dark px-2 py-1 sm:px-3 sm:py-1 rounded-full text-xs sm:text-sm font-bold shadow-sm">Brigadeiro</span>
+                            <span class="bg-white text-brand-dark px-2 py-1 sm:px-3 sm:py-1 rounded-full text-xs sm:text-sm font-bold shadow-sm">Confete</span>
+                            <span class="bg-white text-brand-dark px-2 py-1 sm:px-3 sm:py-1 rounded-full text-xs sm:text-sm font-bold shadow-sm">Prestígio</span>
+                            <span class="bg-white text-brand-dark px-2 py-1 sm:px-3 sm:py-1 rounded-full text-xs sm:text-sm font-bold shadow-sm">Ovomaltine</span>
+                            <span class="bg-white text-brand-dark px-2 py-1 sm:px-3 sm:py-1 rounded-full text-xs sm:text-sm font-bold shadow-sm">Romeu e Julieta</span>
+                        </div>
+                        
+                        <div class="mt-4 sm:mt-6 border-t border-white/20 pt-3 sm:pt-4">
+                            <p class="text-xs sm:text-sm font-medium text-red-100 mb-1"><span class="font-bold text-white">Não inclusos na promoção:</span></p>
+                            <p class="text-[10px] sm:text-xs text-red-200">Temaki, Mano Barba, Brasileira, Camarão, Espanhola, Portuguesa 2.</p>
+                        </div>
+                    </div>
+                    
+                    <a href="https://manobarbapizzaria.wabiz.delivery/" class="block text-center bg-brand-mustard hover:bg-yellow-500 text-brand-dark py-3 sm:py-4 rounded-full font-heading font-black text-lg sm:text-xl shadow-lg transition-transform w-full mt-auto">
+                        APROVEITAR AGORA
+                    </a>
+                </div>
+
+                <!-- Promo Card 2 -->
+                <div class="promo-card promo-card-2 bg-brand-dark text-white rounded-[30px] sm:rounded-[40px] shadow-2xl p-5 sm:p-8 md:p-10 border-4 border-brand-cyan flex flex-col relative h-full mt-10 lg:mt-0">
+                    <div class="absolute -top-6 -left-2 sm:-left-6 bg-brand-cyan text-brand-dark font-black w-20 h-20 sm:w-24 sm:h-24 rounded-full flex items-center justify-center text-center shadow-lg border-4 border-white animate-wiggle z-20 text-sm sm:text-base" style="animation-delay: 1.5s;">
+                        R$ 89,99
+                    </div>
+                    
+                    <h3 class="text-xl sm:text-2xl md:text-3xl font-heading font-black mb-1 sm:mb-2 uppercase pl-16 sm:pl-0">Compre 2 = Coca 2L + Borda Grátis</h3>
+                    <p class="text-brand-cyan font-bold mb-4 sm:mb-6 text-sm sm:text-lg">Toda Terça-feira</p>
+                    
+                    <div class="bg-white/5 rounded-2xl p-4 sm:p-5 mb-4 sm:mb-6 backdrop-blur-sm border border-white/10 flex-grow">
+                        <h4 class="font-bold text-brand-cyan mb-2 sm:mb-3 text-sm sm:text-lg">Sabores Disponíveis:</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-brand-light text-brand-dark px-2 py-1 sm:px-3 sm:py-1 rounded-full text-xs sm:text-sm font-bold shadow-sm">Baiana</span>
+                            <span class="bg-brand-light text-brand-dark px-2 py-1 sm:px-3 sm:py-1 rounded-full text-xs sm:text-sm font-bold shadow-sm">Bacon</span>
+                            <span class="bg-brand-light text-brand-dark px-2 py-1 sm:px-3 sm:py-1 rounded-full text-xs sm:text-sm font-bold shadow-sm">Calabresa</span>
+                            <span class="bg-brand-light text-brand-dark px-2 py-1 sm:px-3 sm:py-1 rounded-full text-xs sm:text-sm font-bold shadow-sm">Escarola</span>
+                            <span class="bg-brand-light text-brand-dark px-2 py-1 sm:px-3 sm:py-1 rounded-full text-xs sm:text-sm font-bold shadow-sm">Frango c/ Catupiry</span>
+                            <span class="bg-brand-light text-brand-dark px-2 py-1 sm:px-3 sm:py-1 rounded-full text-xs sm:text-sm font-bold shadow-sm">La grazia</span>
+                            <span class="bg-brand-light text-brand-dark px-2 py-1 sm:px-3 sm:py-1 rounded-full text-xs sm:text-sm font-bold shadow-sm">Mussarela</span>
+                            <span class="bg-brand-light text-brand-dark px-2 py-1 sm:px-3 sm:py-1 rounded-full text-xs sm:text-sm font-bold shadow-sm">Portuguesa</span>
+                            <span class="bg-brand-light text-brand-dark px-2 py-1 sm:px-3 sm:py-1 rounded-full text-xs sm:text-sm font-bold shadow-sm">Quatro queijos</span>
+                            <span class="bg-brand-light text-brand-dark px-2 py-1 sm:px-3 sm:py-1 rounded-full text-xs sm:text-sm font-bold shadow-sm">Toscana</span>
+                        </div>
+                    </div>
+                    
+                    <a href="https://manobarbapizzaria.wabiz.delivery/" class="block text-center bg-brand-cyan hover:bg-cyan-600 text-brand-dark py-3 sm:py-4 rounded-full font-heading font-black text-lg sm:text-xl shadow-lg transition-transform w-full mt-auto">
+                        APROVEITAR AGORA
+                    </a>
+                </div>
+
+            </div>
+        </div>
+        
+        <!-- Bottom Wave Divider -->
+        <div class="shape-divider z-20">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- ENTREGA E MAPA SECTION -->
+    <section id="entrega" class="py-24 bg-brand-light reveal">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row items-center gap-12">
+                
+                <!-- Text / Icons -->
+                <div class="w-full lg:w-1/2 text-center lg:text-left">
+                    <h2 class="text-4xl md:text-5xl font-heading font-black text-brand-dark mb-6">Chega rapidinho!</h2>
+                    <p class="text-xl text-gray-600 mb-10 font-medium">Você escolhe o sabor e nós fazemos a mágica. Direto do nosso forno para a sua mesa, quentinha e no ponto.</p>
+                    
+                    <div class="flex flex-col sm:flex-row justify-center lg:justify-start gap-8 mb-10">
+                        <div class="flex items-center gap-4 group">
+                            <div class="w-20 h-20 bg-red-50 text-brand-red rounded-full flex items-center justify-center text-4xl shadow-sm group-hover:scale-110 group-hover:bg-brand-red group-hover:text-white transition-all duration-300">
+                                <i class="fa-solid fa-motorcycle"></i>
+                            </div>
+                            <div class="text-left">
+                                <h4 class="font-heading font-bold text-xl text-brand-dark">Entrega Expressa</h4>
+                                <p class="text-gray-500 text-sm">Na velocidade da sua fome</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center gap-4 group">
+                            <div class="w-20 h-20 bg-yellow-100 text-brand-mustard rounded-full flex items-center justify-center text-4xl shadow-sm group-hover:scale-110 group-hover:bg-brand-mustard group-hover:text-white transition-all duration-300">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div class="text-left">
+                                <h4 class="font-heading font-bold text-xl text-brand-dark">Retirada Fácil</h4>
+                                <p class="text-gray-500 text-sm">Rua das Pizzas, 123 - Centro</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="https://manobarbapizzaria.wabiz.delivery/" class="inline-block bg-brand-red hover:bg-red-700 text-white px-6 py-3 sm:px-10 sm:py-5 rounded-full font-heading font-black shadow-lg hover:shadow-2xl transition-all hover:-translate-y-1 text-base sm:text-xl w-full sm:w-auto text-center">
+                        FAZER PEDIDO ONLINE
+                    </a>
+                </div>
+
+                <!-- Google Maps Embed -->
+                <div class="w-full lg:w-1/2">
+                    <div class="map-container relative w-full h-[400px] bg-gray-200">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1m3!1d3657.1975003666683!2d-46.65609408502213!3d-23.561338884682496!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59c8da0aa315%3A0xd59f9431f2c9776a!2sAv.%20Paulista%2C%20S%C3%A3o%20Paulo%20-%20SP!5e0!3m2!1spt-BR!2sbr!4v1672322047385!5m2!1spt-BR!2sbr" 
+                            width="100%" 
+                            height="100%" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade"
+                            class="absolute inset-0">
+                        </iframe>
+                        <div class="absolute bottom-4 left-4 right-4 bg-white/90 backdrop-blur-md p-4 rounded-xl shadow-lg text-center font-bold text-brand-dark border-2 border-brand-red">
+                            <i class="fa-solid fa-pizza-slice text-brand-red mr-2"></i> Venha nos visitar ou peça para entregar!
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- VANTAGENS SECTION -->
+    <section id="vantagens" class="py-24 bg-brand-dark relative reveal">
+        <!-- Top Wave Divider -->
+        <div class="shape-divider-top z-20">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+            </svg>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-12">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-heading font-black text-brand-light">A experiência Mano Barba</h2>
+            </div>
+
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-8">
+                <div class="bg-white/10 backdrop-blur-md p-3 sm:p-8 rounded-[30px] border border-white/10 text-center hover:-translate-y-3 transition-all duration-300 shadow-xl flex flex-col items-center">
+                    <div class="w-12 h-12 sm:w-20 sm:h-20 bg-brand-red text-white rounded-full flex items-center justify-center text-xl sm:text-4xl mx-auto mb-3 sm:mb-6 shadow-[0_0_20px_rgba(230,57,70,0.4)]">🍕</div>
+                    <h3 class="font-heading font-bold text-sm sm:text-xl text-brand-light mb-1 sm:mb-3">Massa Perfeita</h3>
+                    <p class="text-gray-400 text-[10px] sm:text-sm leading-tight">Leve, crocante e assada no ponto exato.</p>
+                </div>
+
+                <div class="bg-white/10 backdrop-blur-md p-3 sm:p-8 rounded-[30px] border border-white/10 text-center hover:-translate-y-3 transition-all duration-300 shadow-xl delay-75 flex flex-col items-center">
+                    <div class="w-12 h-12 sm:w-20 sm:h-20 bg-brand-mustard text-brand-dark rounded-full flex items-center justify-center text-xl sm:text-4xl mx-auto mb-3 sm:mb-6 shadow-[0_0_20px_rgba(255,183,3,0.4)]">🔥</div>
+                    <h3 class="font-heading font-bold text-sm sm:text-xl text-brand-light mb-1 sm:mb-3">Recheio Farto</h3>
+                    <p class="text-gray-400 text-[10px] sm:text-sm leading-tight">Ingredientes de alta qualidade, sem miséria.</p>
+                </div>
+
+                <div class="bg-white/10 backdrop-blur-md p-3 sm:p-8 rounded-[30px] border border-white/10 text-center hover:-translate-y-3 transition-all duration-300 shadow-xl delay-150 flex flex-col items-center">
+                    <div class="w-12 h-12 sm:w-20 sm:h-20 bg-brand-cyan text-brand-dark rounded-full flex items-center justify-center text-xl sm:text-4xl mx-auto mb-3 sm:mb-6 shadow-[0_0_20px_rgba(0,180,216,0.4)]">⚡</div>
+                    <h3 class="font-heading font-bold text-sm sm:text-xl text-brand-light mb-1 sm:mb-3">Pedido Rápido</h3>
+                    <p class="text-gray-400 text-[10px] sm:text-sm leading-tight">Pelo celular ou computador em poucos cliques.</p>
+                </div>
+
+                <div class="bg-white/10 backdrop-blur-md p-3 sm:p-8 rounded-[30px] border border-white/10 text-center hover:-translate-y-3 transition-all duration-300 shadow-xl delay-200 flex flex-col items-center">
+                    <div class="w-12 h-12 sm:w-20 sm:h-20 bg-purple-500 text-white rounded-full flex items-center justify-center text-xl sm:text-4xl mx-auto mb-3 sm:mb-6 shadow-[0_0_20px_rgba(168,85,247,0.4)]">❤️</div>
+                    <h3 class="font-heading font-bold text-sm sm:text-xl text-brand-light mb-1 sm:mb-3">Feita com Amor</h3>
+                    <p class="text-gray-400 text-[10px] sm:text-sm leading-tight">A qualidade e o sabor que você já conhece.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VISUAL "DEU FOME" SECTION -->
+    <section class="relative h-[50vh] min-h-[450px] flex items-center justify-center overflow-hidden reveal">
+        <!-- Top Wave Divider connecting from Dark bg -->
+        <div class="shape-divider-top z-20">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" fill="#1D1D1D"></path>
+            </svg>
+        </div>
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" alt="Pizza saindo do forno" class="w-full h-full object-cover object-center filter brightness-50 transform hover:scale-110 transition-transform duration-[15s]">
+        </div>
+        
+        <div class="relative z-10 text-center px-4 max-w-3xl">
+            <h2 class="text-4xl md:text-5xl font-heading font-black text-white mb-4 drop-shadow-xl">A fome bateu forte?</h2>
+            <p class="text-2xl font-bold text-brand-mustard mb-8 drop-shadow-lg text-shadow-lg">Não precisa sofrer. A gente resolve.</p>
+            <a href="https://manobarbapizzaria.wabiz.delivery/" class="inline-block bg-brand-red hover:bg-red-700 text-white px-8 py-4 sm:px-12 sm:py-5 rounded-full font-heading font-black shadow-[0_10px_30px_rgba(230,57,70,0.6)] transition-transform hover:scale-110 text-xl sm:text-2xl animate-pulse-slow">
+                FAZER PEDIDO AGORA
+            </a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer id="contato" class="bg-brand-dark pt-20 pb-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
+                
+                <!-- Brand -->
+                <div>
+                    <img src="img/Logo_manobarba_hero.png" alt="Mano Barba Logo" class="h-20 w-auto bg-white/5 rounded-full p-2 mb-6 object-contain backdrop-blur-sm border border-white/10">
+                    <p class="text-gray-400 text-sm mb-6">A pizzaria mais descontraída, próxima e saborosa. Feita para matar a sua fome.</p>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-brand-red transition-all hover:scale-110 shadow-lg"><i class="fa-brands fa-instagram text-xl"></i></a>
+                        <a href="#" class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-brand-red transition-all hover:scale-110 shadow-lg"><i class="fa-brands fa-facebook-f text-xl"></i></a>
+                    </div>
+                </div>
+
+                <!-- Localização -->
+                <div>
+                    <h4 class="text-white font-heading font-black text-xl mb-6">Localização</h4>
+                    <ul class="space-y-4 text-gray-400 text-sm font-medium">
+                        <li class="flex gap-3">
+                            <i class="fa-solid fa-location-dot mt-1 text-brand-mustard"></i>
+                            <span>Rua das Pizzas, 123 - Centro<br>Sua Cidade - UF</span>
+                        </li>
+                        <li class="flex gap-3">
+                            <i class="fa-solid fa-motorcycle mt-1 text-brand-cyan"></i>
+                            <span>Consulte nossa área de entrega no site.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Links Rápidos -->
+                <div>
+                    <h4 class="text-white font-heading font-black text-xl mb-6">Links Rápidos</h4>
+                    <ul class="space-y-3 text-gray-400 text-sm font-medium">
+                        <li><a href="https://manobarbapizzaria.wabiz.delivery/" class="hover:text-brand-mustard transition-colors flex items-center gap-2"><i class="fa-solid fa-laptop text-brand-cyan"></i> Fazer Pedido Online</a></li>
+                        <li><a href="cardapio.pdf" target="_blank" class="hover:text-brand-mustard transition-colors flex items-center gap-2"><i class="fa-solid fa-file-pdf text-brand-mustard"></i> Ver Cardápio</a></li>
+                        <li><a href="#pizzas" class="hover:text-brand-mustard transition-colors flex items-center gap-2"><i class="fa-solid fa-pizza-slice text-brand-red"></i> Nossas Pizzas</a></li>
+                    </ul>
+                </div>
+
+            </div>
+            
+            
+            <div class="text-center text-xs text-gray-600 mt-8 font-medium">
+                &copy; 2026 Mano Barba Pizzaria. Todos os direitos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <!-- WHATSAPP FLOATING BUTTON -->
+    <a href="https://wa.me/55000000000" target="_blank" class="fixed bottom-6 right-6 z-50 bg-[#25D366] text-white p-4 rounded-full flex items-center gap-3 shadow-2xl hover:bg-[#128C7E] hover:scale-110 transition-all group border-4 border-white" aria-label="Falar no WhatsApp">
+        <i class="fa-brands fa-whatsapp text-3xl"></i>
+        <span class="font-heading font-black text-lg hidden sm:block pr-2">WhatsApp</span>
+    </a>
+
+    <!-- Main Script -->
+    <script src="js/script.js"></script>
+</body>
+</html>

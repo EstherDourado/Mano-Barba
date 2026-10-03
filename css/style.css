@@ -1,0 +1,156 @@
+/* Custom Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Nunito:wght@700;800;900&display=swap');
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #FAFAFA;
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6, .font-heading {
+    font-family: 'Nunito', sans-serif;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: #FAFAFA;
+}
+::-webkit-scrollbar-thumb {
+    background: #E63946;
+    border-radius: 5px;
+}
+
+/* Minimal Navbar Transition */
+.nav-scrolled {
+    background: rgba(250, 250, 250, 0.95) !important;
+    backdrop-filter: blur(15px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+.nav-scrolled .nav-link {
+    color: #1D1D1D !important;
+}
+.nav-scrolled .nav-link:hover {
+    color: #E63946 !important;
+}
+.nav-scrolled #mobile-menu-btn {
+    color: #1D1D1D !important;
+    background: transparent !important;
+}
+
+/* Floating Animation */
+@keyframes pulse-ring {
+    0% { transform: scale(0.98); box-shadow: 0 0 0 0 rgba(230, 57, 70, 0.5); }
+    50% { transform: scale(1.02); box-shadow: 0 0 0 10px rgba(230, 57, 70, 0); }
+    100% { transform: scale(0.98); box-shadow: 0 0 0 0 rgba(230, 57, 70, 0); }
+}
+.hero-btn-anim {
+    animation: pulse-ring 3.5s ease-in-out infinite;
+}
+
+/* Fluid Pizza Cards */
+.pizza-card {
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.pizza-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+}
+.pizza-img {
+    transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.pizza-card:hover .pizza-img {
+    transform: scale(1.1) rotate(2deg);
+}
+
+/* Promo Cards (Tortos / Tilted) */
+.promo-card {
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.promo-card-1 {
+    transform: rotate(-3deg);
+}
+.promo-card-1:hover {
+    transform: rotate(0deg) translateY(-10px) scale(1.03);
+    z-index: 10;
+}
+.promo-card-2 {
+    transform: rotate(3deg);
+}
+.promo-card-2:hover {
+    transform: rotate(0deg) translateY(-10px) scale(1.03);
+    z-index: 10;
+}
+
+/* Scroll Reveal */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+}
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Text Shadows for Contrast */
+.text-shadow-lg {
+    text-shadow: 0 4px 10px rgba(0,0,0,0.6);
+}
+.text-shadow-sm {
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+/* SVG Curve Dividers */
+.shape-divider {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+}
+.shape-divider svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 70px;
+}
+.shape-divider .shape-fill {
+    fill: #FAFAFA;
+}
+.shape-divider-top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+.shape-divider-top svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 70px;
+}
+.shape-divider-top .shape-fill {
+    fill: #FAFAFA;
+}
+
+/* Map Iframe styling */
+.map-container {
+    border-radius: 2rem;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s ease;
+}
+.map-container:hover {
+    transform: scale(1.02);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+}

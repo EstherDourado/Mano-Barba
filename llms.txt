@@ -1,0 +1,31 @@
+# Mano Barba Pizzaria
+A pizza que dá vontade antes mesmo da primeira mordida.
+
+## Sobre a Mano Barba Pizzaria
+A Mano Barba Pizzaria é uma pizzaria com foco em delivery localizada na Rua das Pizzas, 123 - Centro. Nós servimos pizzas quentinhas, com massa perfeita, leve, crocante, assada no ponto exato e com recheio farto. Nosso posicionamento é oferecer qualidade premium com rapidez na entrega.
+
+## Informações de Contato e Pedidos
+- **Endereço**: Rua das Pizzas, 123 - Centro
+- **Pedido Online**: https://manobarbapizzaria.wabiz.delivery/
+- **Cardápio PDF**: https://manobarbapizzaria.wabiz.delivery/cardapio.pdf
+- **Horário de Funcionamento**:
+  - Segunda a Quinta: 18:00 - 23:00
+  - Sexta e Sábado: 18:00 - 23:59
+  - Domingo: 18:00 - 23:00
+
+## Promoções Atuais
+1. **Promoção de Segunda a Quinta**: Pizza Salgada + Broto Doce por apenas R$ 64,99.
+   - Sabores da Broto Doce: Brigadeiro, Confete, Prestígio, Ovomaltine, Romeu e Julieta.
+   - *Nota*: Sabores salgados não inclusos (Temaki, Mano Barba, Brasileira, Camarão, Espanhola, Portuguesa 2).
+2. **Promoção de Terça-feira**: Compre 2 Pizzas e ganhe Coca-Cola 2L + Borda Recheada Grátis por R$ 89,99.
+   - Sabores Disponíveis: Baiana, Bacon, Calabresa, Escarola, Frango c/ Catupiry, La grazia, Mussarela, Portuguesa, Quatro queijos, Toscana.
+
+## Cardápio de Pizzas em Destaque
+- **Margherita**: Molho de tomate fresco, mussarela especial, manjericão e um toque de azeite.
+- **Pepperoni**: Muito queijo mussarela coberto com fatias generosas de pepperoni levemente picante.
+- **Frango c/ Catupiry**: Frango desfiado temperado e coberto com o verdadeiro Catupiry cremoso.
+- **Calabresa**: A tradicional calabresa fatiada com cebola fresca e azeitonas, um clássico amado.
+- **Quatro Queijos**: Mussarela, provolone, parmesão e gorgonzola derretidos com perfeição.
+- **Brigadeiro**: O verdadeiro brigadeiro cremoso coberto com granulado de chocolate.
+
+Bateu a fome? Faça seu pedido!
