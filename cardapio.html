@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cardápio — Mano Barba Pizzaria &amp; Esfiharia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Yellowtail&family=Bowlby+One&family=Barlow+Condensed:wght@500;600;700;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --red: #E2262B; 
+    --red-dk: #B5161C;
+    --sky: #2BAAE2; 
+    --sky-lt: #D6F0FB;
+    --yellow: #F8D23A; 
+    --navy: #1C2754; 
+    --cream: #FFF8EC; 
+    --ink: #22223a;
+  }
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  body {
+    background: #5a5f6e;
+    font-family: 'Barlow', sans-serif;
+    color: var(--ink);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10mm;
+    padding: 10mm 0;
+  }
+  
+  .page {
+    width: 210mm;
+    height: 297mm;
+    background: var(--cream);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 8px 30px rgba(0,0,0,.35);
+    display: flex;
+    flex-direction: column;
+  }
+  @page {
+    size: A4;
+    margin: 0;
+  }
+  @media print {
+    body { background: none; padding: 0; gap: 0; display: block; }
+    .page { box-shadow: none; page-break-after: always; break-after: page; }
+    * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+
+  /* ---------- CAPA ---------- */
+  .cover { background: var(--red); color: #fff; align-items: center; }
+  .cover .sky {
+    position: absolute; left: -30mm; top: -40mm; width: 230mm; height: 200mm; background: var(--sky);
+    border-radius: 48% 52% 60% 40% / 45% 55% 45% 55%; transform: rotate(-8deg);
+  }
+  .cover .ring {
+    position: absolute; right: -40mm; bottom: -50mm; width: 150mm; height: 150mm; border-radius: 50%;
+    border: 14mm solid rgba(255,255,255,.08);
+  }
+  .cover-top { position: relative; z-index: 2; text-align: center; padding-top: 16mm; }
+  .cover-top .tag { font-family: 'Barlow Condensed'; font-weight: 700; letter-spacing: .35em; font-size: 13pt; text-transform: uppercase; color: var(--navy); }
+  .logo { position: relative; z-index: 2; width: 128mm; margin-top: 4mm; filter: drop-shadow(0 6px 12px rgba(0,0,0,.25)); }
+  .cover h1 {
+    position: relative; z-index: 2; font-family: 'Bowlby One'; font-weight: 400; font-size: 30pt; letter-spacing: .02em;
+    text-transform: uppercase; line-height: 1; margin-top: 2mm; text-shadow: 0 3px 0 var(--red-dk);
+  }
+  .cover h1 span { color: var(--yellow); }
+  
+  .promo {
+    position: relative; z-index: 2; margin: 8mm 18mm 0; background: var(--yellow); color: var(--navy);
+    border-radius: 6mm; padding: 6mm 8mm; transform: rotate(-1.5deg); box-shadow: 0 2mm 0 var(--red-dk);
+  }
+  .promo .kick { font-family: 'Barlow Condensed'; font-weight: 800; text-transform: uppercase; letter-spacing: .08em; font-size: 12pt; color: var(--red); }
+  .promo .big { font-family: 'Bowlby One'; font-size: 20pt; line-height: 1.05; margin: 1mm 0 2mm; }
+  .promo .row { display: flex; justify-content: space-between; align-items: end; gap: 6mm; }
+  .promo .flavors { font-family: 'Barlow Condensed'; font-weight: 700; font-size: 13pt; text-transform: uppercase; line-height: 1.25; }
+  .promo .price { font-family: 'Bowlby One'; font-size: 28pt; color: var(--red); white-space: nowrap; line-height: 1; }
+  .promo .price small { font-size: 11pt; color: var(--navy); display: block; text-align: right; font-family: 'Barlow Condensed'; font-weight: 700; }
+  .promo .note { font-size: 9pt; margin-top: 2mm; opacity: .8; }
+  
+  .borda {
+    position: relative; z-index: 2; margin-top: 6mm; font-family: 'Barlow Condensed'; font-weight: 800; font-size: 14pt;
+    text-transform: uppercase; letter-spacing: .04em; background: var(--navy); padding: 2.5mm 7mm; border-radius: 20mm;
+  }
+  .borda b { color: var(--yellow); }
+  .cover-info {
+    position: absolute; z-index: 2; bottom: 0; left: 0; right: 0; display: grid; grid-template-columns: 1fr 1fr;
+    background: var(--navy); padding: 6mm 14mm; gap: 6mm; font-family: 'Barlow Condensed'; font-size: 12pt; font-weight: 600;
+  }
+  .cover-info .lbl { font-size: 9pt; letter-spacing: .2em; text-transform: uppercase; color: var(--sky); font-weight: 700; }
+  .cover-info .val { font-size: 15pt; font-weight: 700; line-height: 1.2; }
+  .cover-info .val .wa { color: var(--yellow); }
+
+  /* ---------- PÁGINAS INTERNAS ---------- */
+  .head { background: var(--red); color: #fff; padding: 7mm 12mm 6mm; position: relative; display: flex; align-items: end; justify-content: space-between; }
+  .head::after { content: ""; position: absolute; left: 0; right: 0; bottom: -3mm; height: 3mm; background: var(--sky); }
+  .head h2 { font-family: 'Bowlby One'; font-weight: 400; font-size: 26pt; line-height: .95; text-transform: uppercase; }
+  .head h2 em { font-style: normal; color: var(--yellow); }
+  .head .brand { font-family: 'Yellowtail'; font-size: 20pt; color: #fff; opacity: .95; display: flex; align-items: center; gap: 3mm; }
+  .head .brand img { width: 14mm; height: 14mm; object-fit: cover; background: #fff; border-radius: 50%; padding: 0mm; border: 2px solid white; }
+  
+  .body { flex: 1; padding: 8mm 12mm 0; display: flex; flex-direction: column; gap: 6mm; }
+  .foot {
+    display: flex; justify-content: space-between; align-items: center; padding: 4mm 12mm; font-family: 'Barlow Condensed';
+    font-weight: 600; font-size: 10pt; color: var(--navy); border-top: .4mm solid rgba(28,39,84,.15); margin: 0 0;
+  }
+  .foot .pg { background: var(--navy); color: #fff; width: 8mm; height: 8mm; border-radius: 50%; display: grid; place-items: center; font-weight: 700; }
+
+  .sub { display: flex; align-items: center; gap: 4mm; margin-bottom: 1mm; }
+  .sub h3 { font-family: 'Bowlby One'; font-weight: 400; font-size: 15pt; color: var(--navy); text-transform: uppercase; white-space: nowrap; }
+  .sub .line { flex: 1; height: 1.2mm; background: repeating-linear-gradient(90deg, var(--red) 0 4mm, transparent 4mm 6mm); }
+  .sub .cols { font-family: 'Barlow Condensed'; font-weight: 700; font-size: 9pt; letter-spacing: .12em; text-transform: uppercase; color: var(--red); }
+
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; column-gap: 8mm; }
+  .colhead {
+    display: grid; grid-template-columns: 9mm 1fr 13mm 13mm; gap: 2mm; font-family: 'Barlow Condensed'; font-weight: 800;
+    font-size: 8.5pt; letter-spacing: .12em; text-transform: uppercase; color: var(--sky); padding-bottom: 1.2mm; border-bottom: .5mm solid var(--navy);
+  }
+  .colhead span:nth-child(n+3) { text-align: right; }
+  
+  .item {
+    display: grid; grid-template-columns: 9mm 1fr 13mm 13mm; gap: 2mm; align-items: start; padding: 1.6mm 0;
+    border-bottom: .3mm dashed rgba(28,39,84,.2); break-inside: avoid;
+  }
+  .num {
+    font-family: 'Barlow Condensed'; font-weight: 800; font-size: 9pt; color: #fff; background: var(--navy); border-radius: 1.5mm;
+    text-align: center; padding: .4mm 0; margin-top: .4mm;
+  }
+  .item.hot .num { background: var(--red); }
+  .nm { font-family: 'Barlow Condensed'; font-weight: 800; font-size: 11.5pt; text-transform: uppercase; color: var(--navy); line-height: 1.1; }
+  .nm .new { display: inline-block; font-size: 7pt; letter-spacing: .08em; background: var(--yellow); color: var(--red-dk); padding: .3mm 1.4mm; border-radius: 1mm; vertical-align: 2px; margin-left: 1mm; }
+  .ds { font-size: 8.3pt; line-height: 1.25; color: #4b4d63; margin-top: .4mm; text-wrap: pretty; }
+  .pr { font-family: 'Barlow Condensed'; font-weight: 700; font-size: 11pt; text-align: right; color: var(--ink); white-space: nowrap; }
+  .pr.g { color: var(--red); }
+
+  .item.s { grid-template-columns: 11mm 1fr 14mm; }
+  .item.s .nm { font-size: 11pt; }
+  .item.f { grid-template-columns: 11mm 1fr 13mm 13mm; }
+  .colhead.s { grid-template-columns: 11mm 1fr 14mm; }
+  .colhead.f { grid-template-columns: 11mm 1fr 13mm 13mm; }
+
+  .card-note {
+    background: var(--sky-lt); border-radius: 3mm; padding: 3mm 5mm; font-family: 'Barlow Condensed'; font-weight: 700;
+    font-size: 11pt; color: var(--navy); display: flex; gap: 3mm; align-items: center;
+  }
+  .card-note b { color: var(--red); }
+
+  /* combos */
+  .combos { display: grid; grid-template-columns: 1fr 1fr; gap: 5mm; }
+  .combo {
+    background: #fff; border-radius: 4mm; overflow: hidden; display: grid; grid-template-columns: 24mm 1fr;
+    box-shadow: 0 .8mm 0 rgba(28,39,84,.15); border: .4mm solid rgba(28,39,84,.12);
+  }
+  .combo .k { background: var(--sky); color: #fff; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 3mm 0; }
+  .combo:nth-child(4n+2) .k, .combo:nth-child(4n+3) .k { background: var(--red); }
+  .combo .k small { font-family: 'Barlow Condensed'; font-weight: 700; font-size: 8pt; letter-spacing: .15em; text-transform: uppercase; }
+  .combo .k b { font-family: 'Bowlby One'; font-weight: 400; font-size: 24pt; line-height: 1; }
+  .combo .c { padding: 3.5mm 4mm; display: flex; flex-direction: column; justify-content: space-between; gap: 2mm; }
+  .combo .qty { font-family: 'Barlow Condensed'; font-weight: 800; font-size: 10pt; letter-spacing: .1em; text-transform: uppercase; color: var(--sky); }
+  .combo .what { font-family: 'Barlow Condensed'; font-weight: 700; font-size: 12pt; color: var(--navy); line-height: 1.15; }
+  .combo .val { font-family: 'Bowlby One'; font-size: 17pt; color: var(--red); line-height: 1; }
+  .combo .val small { font-size: 9pt; font-family: 'Barlow Condensed'; font-weight: 700; margin-right: 1mm; }
+
+  .info {
+    margin-top: auto; background: var(--navy); color: #fff; border-radius: 5mm 5mm 0 0; padding: 8mm 10mm; display: grid;
+    grid-template-columns: 1.2fr 1fr; gap: 8mm; position: relative; overflow: hidden;
+  }
+  .info::before { content: ""; position: absolute; right: -20mm; top: -25mm; width: 70mm; height: 70mm; border-radius: 50%; background: var(--red); opacity: .9; }
+  .info > * { position: relative; }
+  .info .lbl { font-family: 'Barlow Condensed'; font-size: 9pt; letter-spacing: .2em; text-transform: uppercase; color: var(--sky); font-weight: 700; }
+  .info .v { font-family: 'Barlow Condensed'; font-size: 14pt; font-weight: 700; line-height: 1.2; margin-bottom: 3mm; }
+  .info .v.y { color: var(--yellow); }
+  .info p { font-size: 9pt; line-height: 1.35; opacity: .85; }
+  .info .thanks { font-family: 'Yellowtail'; font-size: 30pt; line-height: 1; color: #fff; margin-bottom: 2mm; }
+  .fine { font-size: 7.5pt; opacity: .7; margin-top: 4mm; line-height: 1.4; }
+  .body.combo-body { padding-bottom: 0; }
+</style>
+</head>
+<body>
+
+<section class="page cover" data-screen-label="01 Capa">
+  <div class="sky"></div><div class="ring"></div>
+  <div class="cover-top"><div class="tag">Pizzaria &amp; Esfiharia</div></div>
+  <img class="logo" src="/img/Logo_manobarba_hero.png" alt="Mano Barba">
+  <h1>Pizzaria <span>&amp;</span> Esfiharia</h1>
+  <div class="promo">
+    <div class="kick">Promoção de segunda a quinta</div>
+    <div class="big">Pizza grande<br>tradicional</div>
+    <div class="row">
+      <div class="flavors">Mussarela · Calabresa · Escarola<br>Baiana · Frango Puro</div>
+      <div class="price"><small>cada</small>R$ 36</div>
+    </div>
+    <div class="note">Exceto vésperas e feriados.</div>
+  </div>
+  <div class="borda"><b>Borda de catupiry grátis</b> em todas as pizzas salgadas!</div>
+  <div class="cover-info">
+    <div><div class="lbl">Peça já</div><div class="val">2554-1166 · 2554-1151<br><span class="wa">WhatsApp 91725-0534</span></div></div>
+    <div><div class="lbl">Funcionamento</div><div class="val">Todos os dias a partir das 18h</div><div style="font-size:10pt;opacity:.8">Inclusive vésperas e feriados</div></div>
+  </div>
+</section>
+
+<section class="page" data-screen-label="02 Pizzas Salgadas I">
+  <div class="head">
+    <h2>Pizzas<br><em>Salgadas</em></h2>
+    <div class="brand">Mano Barba <img src="/img/Logo_manobarba_hero.png" alt=""></div>
+  </div>
+  <div class="body">
+    <div class="grid2">
+      <div>
+        <div class="colhead"><span>Nº</span><span>Sabor</span><span>Broto</span><span>Grande</span></div>
+        <div class="item hot">
+          <div class="num">00</div>
+          <div><div class="nm">Mano Barba<span class="new">Novidade</span></div><div class="ds">Base de costela, cebola, catupiry, mussarela, rodelas de tomate e manjericão.</div></div>
+          <div class="pr">36,99</div><div class="pr g">51,99</div>
+        </div>
+        <div class="item">
+          <div class="num">01</div>
+          <div><div class="nm">À Moda Carioca</div><div class="ds">Presunto, frango, ovos e mussarela.</div></div>
+          <div class="pr">31,49</div><div class="pr g">44,99</div>
+        </div>
+        <div class="item">
+          <div class="num">02</div>
+          <div><div class="nm">Americana</div><div class="ds">Mussarela, atum, palmito, ervilha e cebola.</div></div>
+          <div class="pr">30,79</div><div class="pr g">43,99</div>
+        </div>
+        <div class="item">
+          <div class="num">03</div>
+          <div><div class="nm">Alemã</div><div class="ds">Base de mussarela, frango, milho, bacon e catupiry.</div></div>
+          <div class="pr">30,79</div><div class="pr g">43,99</div>
+        </div>
+        <div class="item">
+          <div class="num">04</div>
+          <div><div class="nm">Alemã II</div><div class="ds">Frango, mussarela, ovo, tomate, bacon e parmesão.</div></div>
+          <div class="pr">31,49</div><div class="pr g">44,99</div>
+        </div>
+        <div class="item">
+          <div class="num">05</div>
+          <div><div class="nm">Atum</div><div class="ds">Atum com cebolas.</div></div>
+          <div class="pr">30,79</div><div class="pr g">43,99</div>
+        </div>
+        <div class="item">
+          <div class="num">06</div>
+          <div><div class="nm">Atum II</div><div class="ds">Base de mussarela e atum com cebolas.</div></div>
+          <div class="pr">32,19</div><div class="pr g">45,99</div>
+        </div>
+        <div class="item">
+          <div class="num">07</div>
+          <div><div class="nm">À Moda</div><div class="ds">Base de mussarela, calabresa, ovos, atum, cebolas e catupiry.</div></div>
+          <div class="pr">30,79</div><div class="pr g">43,99</div>
+        </div>
+        <div class="item">
+          <div class="num">08</div>
+          <div><div class="nm">À Grega</div><div class="ds">Palmito, presunto, ervilha e mussarela.</div></div>
+          <div class="pr">30,79</div><div class="pr g">43,99</div>
+        </div>
+        <div class="item">
+          <div class="num">09</div>
+          <div><div class="nm">Alho</div><div class="ds">Base de mussarela, parmesão coberto com alho.</div></div>
+          <div class="pr">29,39</div><div class="pr g">41,99</div>
+        </div>
+        <div class="item">
+          <div class="num">10</div>
+          <div><div class="nm">Baiana</div><div class="ds">Calabresa moída, ovos, cebola e pimenta.</div></div>
+          <div class="pr">27,99</div><div class="pr g">39,99</div>
+        </div>
+        <div class="item">
+          <div class="num">11</div>
+          <div><div class="nm">Baiacatu</div><div class="ds">Calabresa moída, ovos, bacon e catupiry.</div></div>
+          <div class="pr">29,39</div><div class="pr g">41,99</div>
+        </div>
+        <div class="item">
+          <div class="num">12</div>
+          <div><div class="nm">Bacon</div><div class="ds">Mussarela e bacon.</div></div>
+          <div class="pr">29,39</div><div class="pr g">41,99</div>
+        </div>
+        <div class="item">
+          <div class="num">13</div>
+          <div><div class="nm">Bauru</div><div class="ds">Presunto, mussarela e tomates.</div></div>
+          <div class="pr">29,39</div><div class="pr g">41,99</div>
+        </div>
+        <div class="item">
+          <div class="num">14</div>
+          <div><div class="nm">Brasileira</div><div class="ds">Base de mussarela, atum, ovos, palmito e camarão.</div></div>
+          <div class="pr">33,60</div><div class="pr g">48,99</div>
+        </div>
+        <div class="item">
+          <div class="num">15</div>
+          <div><div class="nm">Brócolis I</div><div class="ds">Brócolis com mussarela.</div></div>
+          <div class="pr">30,79</div><div class="pr g">43,99</div>
+        </div>
+      </div>
+      <div>
+        <div class="colhead"><span>Nº</span><span>Sabor</span><span>Broto</span><span>Grande</span></div>
+        <div class="item">
+          <div class="num">16</div>
+          <div><div class="nm">Brócolis II</div><div class="ds">Brócolis, mussarela, bacon e milho.</div></div>
+          <div class="pr">32,19</div><div class="pr g">45,99</div>
+        </div>
+        <div class="item">
+          <div class="num">17</div>
+          <div><div class="nm">Calabresa</div><div class="ds">Calabresa com cebola.</div></div>
+          <div class="pr">27,99</div><div class="pr g">39,99</div>
+        </div>
+        <div class="item">
+          <div class="num">18</div>
+          <div><div class="nm">Calabresa II</div><div class="ds">Base mussarela, calabresa, pimentão, parmesão, alcaparras, cebola.</div></div>
+          <div class="pr">30,10</div><div class="pr g">42,99</div>
+        </div>
+        <div class="item">
+          <div class="num">19</div>
+          <div><div class="nm">Caipira</div><div class="ds">Frango, milho e catupiry.</div></div>
+          <div class="pr">31,49</div><div class="pr g">44,99</div>
+        </div>
+        <div class="item">
+          <div class="num">20</div>
+          <div><div class="nm">Calábria</div><div class="ds">Calabresa com catupiry.</div></div>
+          <div class="pr">29,39</div><div class="pr g">41,99</div>
+        </div>
+        <div class="item">
+          <div class="num">21</div>
+          <div><div class="nm">Camarão</div><div class="ds">Base de mussarela, camarão temperado e parmesão.</div></div>
+          <div class="pr">37,10</div><div class="pr g">52,99</div>
+        </div>
+        <div class="item">
+          <div class="num">22</div>
+          <div><div class="nm">Caprichosa</div><div class="ds">Mussarela, frango e catupiry.</div></div>
+          <div class="pr">31,49</div><div class="pr g">44,99</div>
+        </div>
+        <div class="item">
+          <div class="num">23</div>
+          <div><div class="nm">Calabacon</div><div class="ds">Calabresa, mussarela e bacon.</div></div>
+          <div class="pr">30,10</div><div class="pr g">42,99</div>
+        </div>
+        <div class="item">
+          <div class="num">24</div>
+          <div><div class="nm">Califórnia</div><div class="ds">Escarola, atum, cebola, tomate e parmesão.</div></div>
+          <div class="pr">31,49</div><div class="pr g">44,99</div>
+        </div>
+        <div class="item">
+          <div class="num">25</div>
+          <div><div class="nm">Carne Seca</div><div class="ds">Carne seca, cebola, mussarela ou catupiry.</div></div>
+          <div class="pr">31,49</div><div class="pr g">44,99</div>
+        </div>
+        <div class="item">
+          <div class="num">26</div>
+          <div><div class="nm">Champignon</div><div class="ds">Mussarela, champignon, parmesão e manjericão.</div></div>
+          <div class="pr">30,10</div><div class="pr g">42,99</div>
+        </div>
+        <div class="item">
+          <div class="num">27</div>
+          <div><div class="nm">Da Hora</div><div class="ds">Base de mussarela, calabresa, palmito e milho.</div></div>
+          <div class="pr">31,49</div><div class="pr g">44,99</div>
+        </div>
+        <div class="item">
+          <div class="num">28</div>
+          <div><div class="nm">Delícia</div><div class="ds">Base de mussarela, frango, calabresa, ovos e bacon.</div></div>
+          <div class="pr">31,49</div><div class="pr g">44,99</div>
+        </div>
+        <div class="item">
+          <div class="num">29</div>
+          <div><div class="nm">Dois Queijos</div><div class="ds">Mussarela e catupiry.</div></div>
+          <div class="pr">30,10</div><div class="pr g">42,99</div>
+        </div>
+        <div class="item">
+          <div class="num">30</div>
+          <div><div class="nm">Escarola</div><div class="ds">Base de mussarela, escarola temperada e bacon.</div></div>
+          <div class="pr">27,99</div><div class="pr g">39,99</div>
+        </div>
+        <div class="item">
+          <div class="num">31</div>
+          <div><div class="nm">Espanhola</div><div class="ds">Base mussarela, lombo, palmito, ervilha, cebola, camarão, catupiry.</div></div>
+          <div class="pr">34,99</div><div class="pr g">49,99</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="foot">
+    <span>Pedidos: 2554-1166 · 2554-1151 · WhatsApp 91725-0534</span>
+    <span class="pg">2</span>
+  </div>
+</section>
+
+<section class="page" data-screen-label="03 Pizzas Salgadas II">
+  <div class="head">
+    <h2>Pizzas<br><em>Salgadas</em></h2>
+    <div class="brand">Mano Barba <img src="/img/Logo_manobarba_hero.png" alt=""></div>
+  </div>
+  <div class="body">
+    <div class="grid2">
+      <div>
+        <div class="colhead"><span>Nº</span><span>Sabor</span><span>Broto</span><span>Grande</span></div>
+        <div class="item">
+          <div class="num">32</div>
+          <div><div class="nm">Frango Catupiry</div><div class="ds">Frango temperado com catupiry.</div></div>
+          <div class="pr">29,39</div><div class="pr g">41,99</div>
+        </div>
+        <div class="item">
+          <div class="num">33</div>
+          <div><div class="nm">Francesa</div><div class="ds">Base mussarela, champignon, presunto, ovos, catupiry e bacon.</div></div>
+          <div class="pr">31,49</div><div class="pr g">44,99</div>
+        </div>
+        <div class="item">
+          <div class="num">34</div>
+          <div><div class="nm">Frango c/ Cheddar</div><div class="ds">Frango com cheddar.</div></div>
+          <div class="pr">30,10</div><div class="pr g">42,99</div>
+        </div>
+        <div class="item">
+          <div class="num">35</div>
+          <div><div class="nm">La Grazia</div><div class="ds">Frango temperado, bacon com mussarela.</div></div>
+          <div class="pr">30,79</div><div class="pr g">43,99</div>
+        </div>
+        <div class="item">
+          <div class="num">36</div>
+          <div><div class="nm">Lombo</div><div class="ds">Lombo com catupiry.</div></div>
+          <div class="pr">30,79</div><div class="pr g">43,99</div>
+        </div>
+        <div class="item">
+          <div class="num">37</div>
+          <div><div class="nm">Mussarela</div><div class="ds">Mussarela com orégano e azeitonas.</div></div>
+          <div class="pr">27,99</div><div class="pr g">39,99</div>
+        </div>
+        <div class="item">
+          <div class="num">38</div>
+          <div><div class="nm">Mussarela II</div><div class="ds">Mussarela, filé de pimentão, bacon e tomate.</div></div>
+          <div class="pr">29,39</div><div class="pr g">41,99</div>
+        </div>
+        <div class="item">
+          <div class="num">39</div>
+          <div><div class="nm">Marguerita</div><div class="ds">Mussarela, parmesão, tomate em rodelas e manjericão.</div></div>
+          <div class="pr">29,39</div><div class="pr g">41,99</div>
+        </div>
+        <div class="item">
+          <div class="num">40</div>
+          <div><div class="nm">Napolitana</div><div class="ds">Mussarela, rodelas de tomate e parmesão.</div></div>
+          <div class="pr">29,39</div><div class="pr g">41,99</div>
+        </div>
+        <div class="item">
+          <div class="num">41</div>
+          <div><div class="nm">Napoli</div><div class="ds">Palmito, bacon com mussarela.</div></div>
+          <div class="pr">31,49</div><div class="pr g">44,99</div>
+        </div>
+        <div class="item">
+          <div class="num">42</div>
+          <div><div class="nm">Palmito</div><div class="ds">Palmito, ervilha com mussarela.</div></div>
+          <div class="pr">31,49</div><div class="pr g">44,99</div>
+        </div>
+        <div class="item">
+          <div class="num">43</div>
+          <div><div class="nm">Peruana</div><div class="ds">Atum, mussarela, bacon, palmito e ervilhas.</div></div>
+          <div class="pr">31,49</div><div class="pr g">44,99</div>
+        </div>
+        <div class="item">
+          <div class="num">44</div>
+          <div><div class="nm">Pizzaiolo</div><div class="ds">Mussarela, calabresa, bacon e filé de pimentão.</div></div>
+          <div class="pr">30,79</div><div class="pr g">43,99</div>
+        </div>
+        <div class="item">
+          <div class="num">45</div>
+          <div><div class="nm">Peperoni</div><div class="ds">Base de mussarela, peperoni e tomates em rodelas.</div></div>
+          <div class="pr">32,19</div><div class="pr g">45,99</div>
+        </div>
+        <div class="item">
+          <div class="num">46</div>
+          <div><div class="nm">Portuguesa</div><div class="ds">Presunto, ervilhas, ovos, cebolas e mussarela.</div></div>
+          <div class="pr">29,39</div><div class="pr g">41,99</div>
+        </div>
+        <div class="item">
+          <div class="num">47</div>
+          <div><div class="nm">Portuguesa II</div><div class="ds">Base mussarela, presunto, ovos, calabresa, camarão e cebolas.</div></div>
+          <div class="pr">33,59</div><div class="pr g">47,99</div>
+        </div>
+      </div>
+      <div>
+        <div class="colhead"><span>Nº</span><span>Sabor</span><span>Broto</span><span>Grande</span></div>
+        <div class="item">
+          <div class="num">48</div>
+          <div><div class="nm">Princesinha</div><div class="ds">Frango, catupiry, palmito e bacon.</div></div>
+          <div class="pr">31,49</div><div class="pr g">44,99</div>
+        </div>
+        <div class="item">
+          <div class="num">49</div>
+          <div><div class="nm">Provenzal</div><div class="ds">Base de mussarela, atum, provolone e tomates em rodelas.</div></div>
+          <div class="pr">30,10</div><div class="pr g">42,99</div>
+        </div>
+        <div class="item">
+          <div class="num">50</div>
+          <div><div class="nm">Peito de Peru</div><div class="ds">Peito de peru com mussarela.</div></div>
+          <div class="pr">34,29</div><div class="pr g">48,99</div>
+        </div>
+        <div class="item">
+          <div class="num">51</div>
+          <div><div class="nm">Quatro Queijos</div><div class="ds">Mussarela, catupiry, provolone e parmesão.</div></div>
+          <div class="pr">31,49</div><div class="pr g">44,99</div>
+        </div>
+        <div class="item">
+          <div class="num">52</div>
+          <div><div class="nm">Requinte</div><div class="ds">Base mussarela, calabresa, palmito, milho, presunto com cheddar.</div></div>
+          <div class="pr">31,49</div><div class="pr g">44,99</div>
+        </div>
+        <div class="item">
+          <div class="num">53</div>
+          <div><div class="nm">Rúcula</div><div class="ds">Mussarela, rúcula e tomate seco.</div></div>
+          <div class="pr">31,49</div><div class="pr g">44,99</div>
+        </div>
+        <div class="item">
+          <div class="num">54</div>
+          <div><div class="nm">Siciliana</div><div class="ds">Bacon, champignon, mussarela, parmesão e rodelas de tomate.</div></div>
+          <div class="pr">30,79</div><div class="pr g">43,99</div>
+        </div>
+        <div class="item">
+          <div class="num">55</div>
+          <div><div class="nm">Tarantela</div><div class="ds">Catupiry, bacon, ovos, champignon, presunto e cebolas.</div></div>
+          <div class="pr">31,49</div><div class="pr g">44,99</div>
+        </div>
+        <div class="item">
+          <div class="num">56</div>
+          <div><div class="nm">Tomate Seco</div><div class="ds">Mussarela e tomate seco.</div></div>
+          <div class="pr">30,79</div><div class="pr g">43,99</div>
+        </div>
+        <div class="item">
+          <div class="num">57</div>
+          <div><div class="nm">Toscana</div><div class="ds">Calabresa coberta com mussarela.</div></div>
+          <div class="pr">29,39</div><div class="pr g">41,99</div>
+        </div>
+        <div class="item">
+          <div class="num">58</div>
+          <div><div class="nm">Três Queijos</div><div class="ds">Base de mussarela, catupiry e parmesão.</div></div>
+          <div class="pr">30,79</div><div class="pr g">43,99</div>
+        </div>
+        <div class="item">
+          <div class="num">59</div>
+          <div><div class="nm">Vegetariana</div><div class="ds">Escarola, ervilhas, palmito, milho com mussarela.</div></div>
+          <div class="pr">30,79</div><div class="pr g">43,99</div>
+        </div>
+        <div class="item">
+          <div class="num">60</div>
+          <div><div class="nm">Itaquera</div><div class="ds">Presunto, bacon, ovos e mussarela.</div></div>
+          <div class="pr">31,49</div><div class="pr g">44,99</div>
+        </div>
+        <div class="item hot">
+          <div class="num">74</div>
+          <div><div class="nm">Temaki Salmão<span class="new">Novidade</span></div><div class="ds">Salmão, cream cheese, tarê, cebolinha e gergelim.</div></div>
+          <div class="pr">48,99</div><div class="pr g">69,99</div>
+        </div>
+        <div class="item hot">
+          <div class="num">75</div>
+          <div><div class="nm">Temaki Atum<span class="new">Novidade</span></div><div class="ds">Atum, cream cheese, tarê, cebolinha e gergelim.</div></div>
+          <div class="pr">41,99</div><div class="pr g">59,99</div>
+        </div>
+      </div>
+    </div>
+    <div class="card-note"><b>Borda de catupiry grátis</b> em todas as pizzas salgadas!</div>
+  </div>
+  <div class="foot">
+    <span>Pedidos: 2554-1166 · 2554-1151 · WhatsApp 91725-0534</span>
+    <span class="pg">3</span>
+  </div>
+</section>
+
+<section class="page" data-screen-label="04 Doces e Esfihas">
+  <div class="head">
+    <h2>Pizzas Doces<br><em>&amp; Esfihas</em></h2>
+    <div class="brand">Mano Barba <img src="/img/Logo_manobarba_hero.png" alt=""></div>
+  </div>
+  <div class="body">
+    <div>
+      <div class="sub"><h3>Pizzas Doces</h3><div class="line"></div></div>
+      <div class="grid2">
+        <div>
+          <div class="colhead"><span>Nº</span><span>Sabor</span><span>Broto</span><span>Grande</span></div>
+          <div class="item">
+            <div class="num">61</div>
+            <div><div class="nm">Brigadeiro</div><div class="ds">Chocolate e granulado.</div></div>
+            <div class="pr">29,39</div><div class="pr g">41,99</div>
+          </div>
+          <div class="item">
+            <div class="num">62</div>
+            <div><div class="nm">Prestígio</div><div class="ds">Chocolate e coco ralado.</div></div>
+            <div class="pr">29,39</div><div class="pr g">41,99</div>
+          </div>
+          <div class="item">
+            <div class="num">63</div>
+            <div><div class="nm">Romeu e Julieta</div><div class="ds">Mussarela e goiabada.</div></div>
+            <div class="pr">29,39</div><div class="pr g">41,99</div>
+          </div>
+          <div class="item">
+            <div class="num">64</div>
+            <div><div class="nm">Sonho de Valsa</div><div class="ds">Sonho de Valsa e chocolate.</div></div>
+            <div class="pr">34,99</div><div class="pr g">49,99</div>
+          </div>
+          <div class="item">
+            <div class="num">65</div>
+            <div><div class="nm">Confete</div><div class="ds">Chocolate com confete.</div></div>
+            <div class="pr">31,49</div><div class="pr g">44,99</div>
+          </div>
+          <div class="item">
+            <div class="num">66</div>
+            <div><div class="nm">Kit Kat</div><div class="ds">Chocolate com Kit Kat.</div></div>
+            <div class="pr">34,99</div><div class="pr g">49,99</div>
+          </div>
+        </div>
+        <div>
+          <div class="colhead"><span>Nº</span><span>Sabor</span><span>Broto</span><span>Grande</span></div>
+          <div class="item">
+            <div class="num">68</div>
+            <div><div class="nm">Ouro Branco</div><div class="ds">Chocolate branco e Ouro Branco.</div></div>
+            <div class="pr">34,99</div><div class="pr g">49,99</div>
+          </div>
+          <div class="item">
+            <div class="num">69</div>
+            <div><div class="nm">Sensação</div><div class="ds">Chocolate e esticadinho.</div></div>
+            <div class="pr">32,89</div><div class="pr g">46,99</div>
+          </div>
+          <div class="item">
+            <div class="num">70</div>
+            <div><div class="nm">Paçoca</div><div class="ds">Doce de leite e paçoca.</div></div>
+            <div class="pr">31,49</div><div class="pr g">44,99</div>
+          </div>
+          <div class="item">
+            <div class="num">71</div>
+            <div><div class="nm">Morango</div><div class="ds">Morango com chocolate.</div></div>
+            <div class="pr">34,99</div><div class="pr g">49,99</div>
+          </div>
+          <div class="item">
+            <div class="num">72</div>
+            <div><div class="nm">Uva</div><div class="ds">Chocolate e uva.</div></div>
+            <div class="pr">34,99</div><div class="pr g">49,99</div>
+          </div>
+          <div class="item">
+            <div class="num">73</div>
+            <div><div class="nm">Ovomaltine</div><div class="ds">Creme de Ovomaltine.</div></div>
+            <div class="pr">34,99</div><div class="pr g">49,99</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div>
+      <div class="sub"><h3>Esfihas Salgadas</h3><div class="line"></div></div>
+      <div class="grid2">
+        <div>
+          <div class="colhead s"><span>Nº</span><span>Sabor</span><span>R$</span></div>
+          <div class="item s"><div class="num">201</div><div class="nm">Carne</div><div class="pr g">1,99</div></div>
+          <div class="item s"><div class="num">202</div><div class="nm">Calabresa</div><div class="pr g">2,49</div></div>
+          <div class="item s"><div class="num">203</div><div class="nm">Queijo Branco</div><div class="pr g">3,50</div></div>
+          <div class="item s"><div class="num">204</div><div class="nm">Queijo Mussarela</div><div class="pr g">3,50</div></div>
+          <div class="item s"><div class="num">205</div><div class="nm">Napolitana</div><div class="pr g">4,00</div></div>
+          <div class="item s"><div class="num">206</div><div class="nm">Frango com Catupiry</div><div class="pr g">4,00</div></div>
+          <div class="item s"><div class="num">207</div><div class="nm">Escarola com Queijo</div><div class="pr g">4,00</div></div>
+          <div class="item s"><div class="num">208</div><div class="nm">Calabresa c/ Queijo</div><div class="pr g">4,00</div></div>
+          <div class="item s"><div class="num">209</div><div class="nm">Atum</div><div class="pr g">4,00</div></div>
+          <div class="item s"><div class="num">210</div><div class="nm">Atum com Queijo</div><div class="pr g">4,50</div></div>
+          <div class="item s"><div class="num">211</div><div class="nm">Bauru (presunto c/ mussarela)</div><div class="pr g">4,00</div></div>
+          <div class="item s"><div class="num">212</div><div class="nm">Bacon c/ Queijo</div><div class="pr g">4,00</div></div>
+        </div>
+        <div>
+          <div class="colhead s"><span>Nº</span><span>Sabor</span><span>R$</span></div>
+          <div class="item s"><div class="num">213</div><div class="nm">Palmito c/ Queijo</div><div class="pr g">4,00</div></div>
+          <div class="item s"><div class="num">214</div><div class="nm">Camarão</div><div class="pr g">6,00</div></div>
+          <div class="item s"><div class="num">215</div><div class="nm">Milho com Queijo</div><div class="pr g">4,00</div></div>
+          <div class="item s"><div class="num">216</div><div class="nm">Brócolis c/ Queijo</div><div class="pr g">4,00</div></div>
+          <div class="item s"><div class="num">217</div><div class="nm">Portuguesa</div><div class="pr g">4,00</div></div>
+          <div class="item s"><div class="num">218</div><div class="nm">4 Queijos</div><div class="pr g">4,00</div></div>
+          <div class="item s"><div class="num">225</div><div class="nm">Catupiry</div><div class="pr g">3,50</div></div>
+          <div class="item s"><div class="num">226</div><div class="nm">Marguerita</div><div class="pr g">4,00</div></div>
+          <div class="item s"><div class="num">227</div><div class="nm">Baiana</div><div class="pr g">4,00</div></div>
+          <div class="item s"><div class="num">228</div><div class="nm">Carne Seca c/ Mussarela</div><div class="pr g">5,00</div></div>
+          <div class="item s hot"><div class="num">235</div><div class="nm">Temaki Atum<span class="new">Novidade</span></div><div class="pr g">8,00</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="foot">
+    <span>Pedidos: 2554-1166 · 2554-1151 · WhatsApp 91725-0534</span>
+    <span class="pg">4</span>
+  </div>
+</section>
+
+<section class="page" data-screen-label="05 Esfihas Doces e Fogazzas">
+  <div class="head">
+    <h2>Esfihas Doces<br><em>&amp; Fogazzas</em></h2>
+    <div class="brand">Mano Barba <img src="/img/Logo_manobarba_hero.png" alt=""></div>
+  </div>
+  <div class="body">
+    <div>
+      <div class="sub"><h3>Esfihas Doces</h3><div class="line"></div></div>
+      <div class="grid2">
+        <div>
+          <div class="colhead s"><span>Nº</span><span>Sabor</span><span>R$</span></div>
+          <div class="item s"><div class="num">219</div><div class="nm">Brigadeiro</div><div class="pr g">7,00</div></div>
+          <div class="item s"><div class="num">220</div><div class="nm">Romeu e Julieta</div><div class="pr g">7,00</div></div>
+          <div class="item s"><div class="num">221</div><div class="nm">Prestígio</div><div class="pr g">7,00</div></div>
+          <div class="item s"><div class="num">222</div><div class="nm">Confetes</div><div class="pr g">7,00</div></div>
+          <div class="item s"><div class="num">223</div><div class="nm">Sonho de Valsa</div><div class="pr g">7,00</div></div>
+          <div class="item s"><div class="num">224</div><div class="nm">Ouro Branco</div><div class="pr g">7,00</div></div>
+        </div>
+        <div>
+          <div class="colhead s"><span>Nº</span><span>Sabor</span><span>R$</span></div>
+          <div class="item s"><div class="num">229</div><div class="nm">Kit Kat</div><div class="pr g">7,00</div></div>
+          <div class="item s"><div class="num">230</div><div class="nm">Sensação</div><div class="pr g">7,00</div></div>
+          <div class="item s"><div class="num">231</div><div class="nm">Paçoca</div><div class="pr g">7,00</div></div>
+          <div class="item s"><div class="num">232</div><div class="nm">Morango</div><div class="pr g">7,00</div></div>
+          <div class="item s"><div class="num">233</div><div class="nm">Uva</div><div class="pr g">7,00</div></div>
+          <div class="item s"><div class="num">234</div><div class="nm">Ovomaltine</div><div class="pr g">7,00</div></div>
+        </div>
+      </div>
+    </div>
+    
+    <div>
+      <div class="sub"><h3>Fogazzas</h3><div class="line"></div></div>
+      <div class="grid2">
+        <div>
+          <div class="colhead f"><span>Nº</span><span>Sabor</span><span>15cm</span><span>20cm</span></div>
+          <div class="item f"><div class="num">402</div><div class="nm">Calabresa</div><div class="pr">12,00</div><div class="pr g">24,00</div></div>
+          <div class="item f"><div class="num">403</div><div class="nm">Queijo</div><div class="pr">12,00</div><div class="pr g">24,00</div></div>
+          <div class="item f"><div class="num">404</div><div class="nm">Napolitana</div><div class="pr">12,00</div><div class="pr g">24,00</div></div>
+          <div class="item f"><div class="num">405</div><div class="nm">Frango com Catupiry</div><div class="pr">12,00</div><div class="pr g">24,00</div></div>
+          <div class="item f"><div class="num">406</div><div class="nm">Escarola com Queijo</div><div class="pr">12,00</div><div class="pr g">24,00</div></div>
+          <div class="item f"><div class="num">407</div><div class="nm">Calabresa c/ Queijo</div><div class="pr">12,00</div><div class="pr g">24,00</div></div>
+          <div class="item f"><div class="num">408</div><div class="nm">Atum</div><div class="pr">12,00</div><div class="pr g">24,00</div></div>
+          <div class="item f"><div class="num">409</div><div class="nm">Atum com Queijo</div><div class="pr">12,00</div><div class="pr g">24,00</div></div>
+          <div class="item f"><div class="num">410</div><div class="nm">Bauru</div><div class="pr">12,00</div><div class="pr g">24,00</div></div>
+        </div>
+        <div>
+          <div class="colhead f"><span>Nº</span><span>Sabor</span><span>15cm</span><span>20cm</span></div>
+          <div class="item f"><div class="num">411</div><div class="nm">Bacon c/ Queijo</div><div class="pr">12,00</div><div class="pr g">24,00</div></div>
+          <div class="item f"><div class="num">412</div><div class="nm">Palmito c/ Queijo</div><div class="pr">12,00</div><div class="pr g">24,00</div></div>
+          <div class="item f"><div class="num">413</div><div class="nm">Camarão</div><div class="pr">15,00</div><div class="pr g">30,00</div></div>
+          <div class="item f"><div class="num">414</div><div class="nm">Milho com Queijo</div><div class="pr">12,00</div><div class="pr g">24,00</div></div>
+          <div class="item f"><div class="num">415</div><div class="nm">Brócolis c/ Queijo</div><div class="pr">12,00</div><div class="pr g">24,00</div></div>
+          <div class="item f"><div class="num">416</div><div class="nm">Portuguesa</div><div class="pr">12,00</div><div class="pr g">24,00</div></div>
+          <div class="item f"><div class="num">417</div><div class="nm">4 Queijos</div><div class="pr">12,00</div><div class="pr g">24,00</div></div>
+          <div class="item f"><div class="num">419</div><div class="nm">Pizza</div><div class="pr">12,00</div><div class="pr g">24,00</div></div>
+        </div>
+      </div>
+    </div>
+    
+    <div>
+      <div class="sub"><h3>Fogazzas Doces</h3><div class="line"></div></div>
+      <div class="grid2">
+        <div>
+          <div class="colhead f"><span>Nº</span><span>Sabor</span><span>15cm</span><span>20cm</span></div>
+          <div class="item f"><div class="num">418</div><div class="nm">Brigadeiro</div><div class="pr">15,00</div><div class="pr g">30,00</div></div>
+          <div class="item f"><div class="num">420</div><div class="nm">Morango</div><div class="pr">15,00</div><div class="pr g">30,00</div></div>
+          <div class="item f"><div class="num">421</div><div class="nm">Uva</div><div class="pr">15,00</div><div class="pr g">30,00</div></div>
+          <div class="item f"><div class="num">422</div><div class="nm">Confete</div><div class="pr">15,00</div><div class="pr g">30,00</div></div>
+          <div class="item f"><div class="num">423</div><div class="nm">Ouro Branco</div><div class="pr">15,00</div><div class="pr g">30,00</div></div>
+          <div class="item f"><div class="num">424</div><div class="nm">Sonho de Valsa</div><div class="pr">15,00</div><div class="pr g">30,00</div></div>
+        </div>
+        <div>
+          <div class="colhead f"><span>Nº</span><span>Sabor</span><span>15cm</span><span>20cm</span></div>
+          <div class="item f"><div class="num">425</div><div class="nm">Prestígio</div><div class="pr">15,00</div><div class="pr g">30,00</div></div>
+          <div class="item f"><div class="num">426</div><div class="nm">Paçoca</div><div class="pr">15,00</div><div class="pr g">30,00</div></div>
+          <div class="item f"><div class="num">427</div><div class="nm">Romeu e Julieta</div><div class="pr">15,00</div><div class="pr g">30,00</div></div>
+          <div class="item f"><div class="num">428</div><div class="nm">Kit Kat</div><div class="pr">15,00</div><div class="pr g">30,00</div></div>
+          <div class="item f"><div class="num">429</div><div class="nm">Sensação</div><div class="pr">15,00</div><div class="pr g">30,00</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="foot">
+    <span>Pedidos: 2554-1166 · 2554-1151 · WhatsApp 91725-0534</span>
+    <span class="pg">5</span>
+  </div>
+</section>
+
+<section class="page" data-screen-label="06 Combos">
+  <div class="head">
+    <h2>Combos<br><em>de Esfihas</em></h2>
+    <div class="brand">Mano Barba <img src="/img/Logo_manobarba_hero.png" alt=""></div>
+  </div>
+  <div class="body combo-body">
+    <div class="combos">
+      <div class="combo">
+        <div class="k"><small>Combo</small><b>1</b></div>
+        <div class="c">
+          <div><div class="qty">20 esfihas</div><div class="what">5 Carne · 5 Queijo · 5 Atum · 5 Catufrango</div></div>
+          <div class="val"><small>R$</small>51,00</div>
+        </div>
+      </div>
+      <div class="combo">
+        <div class="k"><small>Combo</small><b>2</b></div>
+        <div class="c">
+          <div><div class="qty">20 esfihas</div><div class="what">10 Carne · 10 Queijo</div></div>
+          <div class="val"><small>R$</small>49,00</div>
+        </div>
+      </div>
+      <div class="combo">
+        <div class="k"><small>Combo</small><b>3</b></div>
+        <div class="c">
+          <div><div class="qty">20 esfihas</div><div class="what">5 Carne · 5 Queijo · 5 Bauru · 5 Calabresa</div></div>
+          <div class="val"><small>R$</small>51,00</div>
+        </div>
+      </div>
+      <div class="combo">
+        <div class="k"><small>Combo</small><b>4</b></div>
+        <div class="c">
+          <div><div class="qty">15 esfihas</div><div class="what">5 Carne · 5 Queijo · 5 Calabresa</div></div>
+          <div class="val"><small>R$</small>39,00</div>
+        </div>
+      </div>
+      <div class="combo">
+        <div class="k"><small>Combo</small><b>5</b></div>
+        <div class="c">
+          <div><div class="qty">20 esfihas</div><div class="what">5 Carne · 5 Queijo · 5 Bauru · 5 Catufrango</div></div>
+          <div class="val"><small>R$</small>51,00</div>
+        </div>
+      </div>
+      <div class="combo">
+        <div class="k"><small>Combo</small><b>6</b></div>
+        <div class="c">
+          <div><div class="qty">20 esfihas</div><div class="what">10 Carne · 5 Queijo · 5 Calabresa</div></div>
+          <div class="val"><small>R$</small>45,00</div>
+        </div>
+      </div>
+      <div class="combo">
+        <div class="k"><small>Combo</small><b>8</b></div>
+        <div class="c">
+          <div><div class="qty">15 esfihas</div><div class="what">5 Catufrango · 5 Carne · 5 Queijo</div></div>
+          <div class="val"><small>R$</small>43,00</div>
+        </div>
+      </div>
+      <div class="combo">
+        <div class="k"><small>Combo</small><b>9</b></div>
+        <div class="c">
+          <div><div class="qty">20 esfihas</div><div class="what">5 Calabresa · 5 Bauru · 5 Queijo · 5 Catufrango</div></div>
+          <div class="val"><small>R$</small>55,00</div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="info">
+      <div>
+        <div class="lbl">Endereço</div>
+        <div class="v">Rua São José de Mossamedes, 186<br>Núcleo Lageado</div>
+        <div class="lbl">Entrega</div>
+        <div class="v y">Taxa a partir de R$ 6,00</div>
+        <p>Consulte a taxa para o seu endereço. Pague com cartão sem sair de casa — Visa, MasterCard, Alelo e outros.</p>
+      </div>
+      <div>
+        <div class="thanks">Valeu, mano!</div>
+        <div class="lbl">Pedidos</div>
+        <div class="v">2554-1166<br>2554-1151</div>
+        <div class="v y">WhatsApp 91725-0534</div>
+      </div>
+      <div class="fine" style="grid-column:1/-1">Reservamo-nos o direito de alterar preços sem aviso prévio e de corrigir eventuais erros de digitação/publicação.</div>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>
